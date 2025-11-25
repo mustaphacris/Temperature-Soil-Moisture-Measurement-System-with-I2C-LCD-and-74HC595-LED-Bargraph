@@ -27,40 +27,40 @@ Ce mini-projet regroupe donc de nombreuses compétences importantes en électron
 
 Chaque composant utilisé a une fonction précise dans le projet :
 
-✔️ Arduino Uno R3
+### ✔️ Arduino Uno R3
 
 C’est le cœur du système. Il gère les entrées analogiques, les calculs, le pilotage des modules, ainsi que l’affichage. On utilise ici un Uno car il possède suffisamment de broches et une bonne compatibilité avec les bibliothèques LCD et capteurs.
 
-✔️ Écran LCD 16×2 + interface I2C (PCF8574)
+### ✔️ Écran LCD 16×2 + interface I2C (PCF8574)
 
 Le module LCD permet d’afficher des informations textuelles. Le convertisseur I2C intégré réduit les besoins en broches en passant de 6–8 fils à seulement 2 fils (SDA et SCL).
 
-✔️ Capteur TMP36
+### ✔️ Capteur TMP36
 
 Un capteur de température analogique simple, précis et à sortie linéaire. Il fournit une tension proportionnelle à la température.
 
-✔️ Capteur d’humidité du sol
+### ✔️ Capteur d’humidité du sol
 
 Ce capteur mesure la conductivité du sol : plus il retient d’eau, plus la valeur analogique diminue. Cela permet de surveiller l’arrosage d’une plante ou d’un sol.
 
-✔️ Registre à décalage 74HC595
+### ✔️ Registre à décalage 74HC595
 
 Ce module augmente le nombre de sorties de l’Arduino. Il est parfait pour piloter un bargraph LED sans utiliser 8 broches directes de l’Uno.
 
-✔️ LEDs + résistances 220 Ω
+### ✔️ LEDs + résistances 220 Ω
 
 Elles composent le bargraph donnant une vision instantanée de la température. Les résistances évitent d’endommager les LEDs ou le 74HC595.
 
-✔️ Bouton poussoir
+### ✔️ Bouton poussoir
 
 Il permet d’interagir avec le système : changer de mode et configurer le seuil.
 
-✔️ LED rouge d’alerte
+### ✔️ LED rouge d’alerte
 
 Elle signale visuellement tout dépassement de seuil, ce qui rend le système plus intuitif.
 
 ## 4. Description des capteurs et modules
-🔹 4.1 TMP36 – Capteur de température
+### 🔹 4.1 TMP36 – Capteur de température
 
 Le TMP36 est un capteur de température analogique facile à utiliser.
 Il possède une caractéristique linéaire :
@@ -72,7 +72,7 @@ il fournit 0,5 V à 0°C
 L’Arduino lit cette tension sur une broche analogique, puis convertit la valeur en °C.
 L’avantage du TMP36 est qu’il n’a besoin d’aucune calibration complexe.
 
-🔹 4.2 Capteur d’humidité du sol
+### 🔹 4.2 Capteur d’humidité du sol
 
 Ce capteur fonctionne en mesurant la conductivité du sol.
 
@@ -82,7 +82,7 @@ Sol humide → résistance petite → valeur analogique faible
 
 Ce capteur est utile pour automatiser un système d’arrosage ou simplement surveiller l’humidité.
 
-🔹 4.3 Écran LCD I2C
+### 🔹 4.3 Écran LCD I2C
 
 Le module LCD avec interface I2C utilise seulement deux fils :
 
@@ -93,7 +93,7 @@ SCL (clock)
 Il possède une adresse (généralement 0x27) que l’Arduino interroge pour envoyer du texte.
 L’I2C permet de connecter plusieurs modules sur les mêmes lignes, ce qui économise beaucoup de broches.
 
-🔹 4.4 Registre à décalage 74HC595
+### 🔹 4.4 Registre à décalage 74HC595
 
 Le 74HC595 est un composant numérique qui permet d'obtenir 8 sorties supplémentaires à partir d’une seule broche de données.
 
@@ -107,12 +107,12 @@ Lorsque les 8 bits sont envoyés, on active la broche latch pour les afficher.
 
 Le 74HC595 est donc très utile pour piloter un grand nombre de LEDs tout en économisant les broches.
 
-🔹 4.5 LED Rouge d’alerte
+### 🔹 4.5 LED Rouge d’alerte
 
 Elle s’allume ou clignote lorsque la température dépasse un seuil.
 Cela permet à l’utilisateur de détecter rapidement un problème sans même regarder l’écran.
 
-🔹 4.6 Bouton poussoir
+### 🔹 4.6 Bouton poussoir
 
 Le bouton effectue plusieurs actions selon la durée d'appui :
 
@@ -162,28 +162,28 @@ Dans notre projet, il sert à afficher la température sous forme de bargraph LE
 
 Le fonctionnement général du système peut être résumé en étapes :
 
-✔️ 1. Lecture des capteurs
+### ✔️ 1. Lecture des capteurs
 
 L’Arduino lit le TMP36 et le capteur d’humidité toutes les quelques millisecondes sans bloquer le programme.
 
-✔️ 2. Conversion et traitement
+### ✔️ 2. Conversion et traitement
 
 Les valeurs analogiques sont converties en °C et en % d’humidité.
 Le bargraph est calculé selon la température.
 
-✔️ 3. Affichage I2C
+### ✔️ 3. Affichage I2C
 
 Le texte est écrit sur le LCD en fonction du mode choisi.
 
-✔️ 4. Bargraph LED
+### ✔️ 4. Bargraph LED
 
 Le registre à décalage illumine de 0 à 8 LEDs selon la température mesurée.
 
-✔️ 5. Gestion de l’alerte
+### ✔️ 5. Gestion de l’alerte
 
 Si la température dépasse le seuil configuré, la LED rouge se met à clignoter.
 
-✔️ 6. Navigation via bouton
+### ✔️ 6. Navigation via bouton
 
 L’utilisateur peut changer le mode et régler le seuil facilement.
 
