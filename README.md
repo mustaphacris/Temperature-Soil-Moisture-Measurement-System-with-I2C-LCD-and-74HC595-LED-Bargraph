@@ -4,6 +4,8 @@ Système intégré de mesure, d’affichage et d’alerte utilisant Arduino, LCD
 
 Ce projet consiste à concevoir un système capable de mesurer des grandeurs physiques (température et humidité du sol), de les afficher sur un écran à faible consommation de broches (I2C), et d'utiliser un registre à décalage pour piloter un bargraph LED représentant visuellement l’évolution de la température.
 
+<img width="362" height="328" alt="image" src="https://github.com/user-attachments/assets/01b9dc20-b7c2-4896-80be-f72c1ad5c3ef" />
+
 ## 2. Objectif du projet
 
 L’objectif du projet est d’apprendre à interfacer plusieurs types de capteurs, à utiliser différents protocoles de communication numérique et à concevoir une interface utilisateur simplifiée.
