@@ -1,0 +1,11 @@
+﻿Nom,Quantité,Composant
+"U1",1," Arduino Uno R3"
+"U3",1," Capteur de température [TMP36]"
+"U4",1,"Basé sur PCF8574, 39 (0x27) Écran LCD 16x2 (I2C)"
+"SEN1",1," Capteur d'humidité du sol"
+"S1",1," Bouton-poussoir"
+"R1",1,"10 kΩ Résistance"
+"D1, D3, D2, D4, D5, D6, D7, D8, D9",9,"Rouge LED"
+"R2",1,"220 Ω Résistance"
+"U2",1," Registre de décalage 8 bits"
+"R4, R3, R5, R6, R7, R8, R9, R10",8,"320 Ω Résistance"
